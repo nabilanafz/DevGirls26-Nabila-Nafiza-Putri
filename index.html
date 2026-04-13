@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Logo" class="app-logo">
+            </div>
+            <nav class="menu">
+                <div class="menu-item active" onclick="showPage('dashboard', this)">
+                    <div class="active-indicator"></div>
+                    <i class="fas fa-th-large"></i> <span>Dashboard</span>
+                </div>
+                <div class="menu-item" onclick="showPage('tasks', this)">
+                    <div class="active-indicator"></div>
+                    <i class="fas fa-book"></i> <span>Tasks</span>
+                </div>
+                <div class="menu-item" onclick="showPage('add-task', this)">
+                    <div class="active-indicator"></div>
+                    <i class="fas fa-plus-circle"></i> <span>Add Task</span>
+                </div>
+                <div class="menu-item" onclick="showPage('schedule', this)">
+                    <div class="active-indicator"></div>
+                    <i class="fas fa-calendar-alt"></i> <span>Schedule</span>
+                </div>
+                <div class="menu-item" id="theme-toggle">
+                    <div class="active-indicator"></div>
+                    <i class="fas fa-moon"></i> <span>Theme</span>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            
+            <section id="dashboard" class="page active">
+                <div class="greeting-card">
+                    <div class="greeting-text">
+                        <h1>Hello, Teman Belajar!</h1>
+                        <p>Are you ready to finish your tasks today?</p>
+                        <button class="btn-review" onclick="showPage('tasks')">Review Tasks</button>
+                    </div>
+                    <div class="greeting-img">
+                        <img src="Ilustrasi1.png" alt="Illustration">
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="productivity-section">
+                        <h3>Today's Productivity</h3>
+                        <div class="summary-cards">
+                            <div class="card blue">
+                                <p>Total Tasks</p>
+                                <h2 id="summary-total">0 Tasks</h2>
+                            </div>
+                            <div class="card purple">
+                                <p>Completed</p>
+                                <h2 id="summary-completed">0 Tasks</h2>
+                            </div>
+                            <div class="card light-blue">
+                                <p>Remaining</p>
+                                <h2 id="summary-remaining">0 Tasks</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="did-you-know">
+                        <h3><p>Did you know?</p></h3>
+                        <p>The First Computer Weighed 27 Tons: ENIAC, built in 1946, was as large as a big classroom.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tasks" class="page">
+                <div class="page-header">
+                    <h2>Tasks</h2>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search task">
+                    </div>
+                </div>
+                <div id="tasks-list" class="task-grid">
+                    </div>
+            </section>
+
+            <section id="add-task" class="page">
+                <h2>Add New Task</h2>
+                <form id="task-form" class="styled-form">
+                    <div class="form-group">
+                        <label>Task Title</label>
+                        <input type="text" id="title" placeholder="Enter title here" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Deadline</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="desc" placeholder="Enter description here" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-save">Save Task</button>
+                </form>
+            </section>
+
+            <section id="schedule" class="page">
+                <h2>Today's Deadline</h2>
+                <div id="schedule-list" class="task-list-vertical">
+                    </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
